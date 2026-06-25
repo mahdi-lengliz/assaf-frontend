@@ -1,0 +1,9 @@
+@if (!isAdminRoute) {
+  <app-navbar></app-navbar>
+}
+
+<main [class.site-main]="!isAdminRoute">
+  <router-outlet></router-outlet>
+</main>
+
+<app-toast></app-toast>

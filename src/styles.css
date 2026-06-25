@@ -1,0 +1,8 @@
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FAF7F2;--bg2:#F2EDE4;--card:#fff;--border:#E0D9CE;--gold:#9A7B3A;--gold2:#C8973A;--text:#1C1916;--muted:#8A8278;--light:#B0A898;--serif:'Playfair Display',serif;--sans:'Montserrat',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+button,input,select,textarea{font-family:inherit}
+button{cursor:pointer}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--gold)}
