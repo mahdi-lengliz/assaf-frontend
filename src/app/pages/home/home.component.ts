@@ -56,11 +56,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   heroImages$;
   activeHeroImage = 0;
   private readonly editorialHeroImage: HeroImage = {
-    src: 'assaf-hero-products-v1.webp',
+    src: 'assaf-hero-baniere-v1.webp',
     alt: 'Campagne ASSAF',
     kind: 'editorial',
     position: 'center center',
-    srcset: '/assaf-hero-products-mobile-v1.webp 900w, /assaf-hero-products-v1.webp 1500w',
+    srcset: '/assaf-hero-baniere-mobile-v1.webp 900w, /assaf-hero-baniere-v1.webp 1500w',
     sizes: '(max-width: 620px) 100vw, 50vw'
   };
   private heroTimer?: ReturnType<typeof setInterval>;
@@ -76,8 +76,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     { tag: 'Collections Exclusives', title: 'Nos Collections', sub: 'Coffrets et éditions spéciales', ico: '🎁', path: '/exclusives' }
   ];
   promoBanners = [
-    { tag: 'Collection Femme', title: 'Signature Elle', sub: 'Des notes elegantes, lumineuses et feminines.', btn: 'Découvrir la collection', img: '/assaf-promo-elle.webp', prodName: 'Signature', path: '/elle' },
-    { tag: 'Selection Homme', title: 'Signature Lui', sub: 'Des sillages profonds, modernes et affirmes.', btn: 'Commander maintenant', img: '/assaf-promo-lui.webp', prodName: 'Signature', path: '/lui' }
+    { tag: 'Collection Femme', title: 'Arrogate Comete', sub: 'Une signature lumineuse, elegante et feminine.', btn: 'Découvrir le parfum', img: '/assaf-promo-arrogate-comete-v1.webp', prodName: 'Arrogate Comete', path: '/elle' },
+    { tag: 'Selection Homme', title: 'Morinho Assaf', sub: 'Un sillage profond, moderne et affirme.', btn: 'Commander maintenant', img: '/assaf-promo-morinho-v1.webp', prodName: 'Morinho Assaf', path: '/lui' }
   ];
 
   constructor(private storeService: StoreService, public router: Router) {
@@ -102,8 +102,22 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   openPromo(productName: string, fallbackPath: string): void {
-    const product = this.storeService.products.find(item => item.name.toLowerCase().includes(productName.toLowerCase()));
+    const expected = this.normalizeLookup(productName);
+    const expectedTokens = expected.split(' ').filter(Boolean);
+    const product = this.storeService.products.find(item => {
+      const candidate = this.normalizeLookup(item.name);
+      return candidate.includes(expected) || expectedTokens.every(token => candidate.includes(token));
+    });
     this.router.navigate(product ? ['/product', product.id] : [fallbackPath]);
+  }
+
+  private normalizeLookup(value: string): string {
+    return value
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
   }
 
   isHeroImageActive(index: number, total: number): boolean {
