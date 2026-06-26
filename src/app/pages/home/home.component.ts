@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ];
   promoBanners = [
     { tag: 'Collection Femme', title: 'Arrogate Comete', sub: 'Une signature lumineuse, elegante et feminine.', btn: 'Découvrir le parfum', img: '/assaf-promo-arrogate-comete-v1.webp', prodName: 'Arrogate Comete', path: '/elle' },
-    { tag: 'Selection Homme', title: 'Morinho Assaf', sub: 'Un sillage profond, moderne et affirme.', btn: 'Commander maintenant', img: '/assaf-promo-morinho-v1.webp', prodName: 'Morinho Assaf', path: '/lui' }
+    { tag: 'Selection Homme', title: 'EDP WILD COLT', sub: 'Un sillage profond, moderne et affirme.', btn: 'Commander maintenant', img: '/assaf-promo-morinho-v1.webp', prodName: 'EDP WILD COLT', path: '/lui' }
   ];
 
   constructor(private storeService: StoreService, public router: Router) {
