@@ -104,3 +104,114 @@ footer{background:var(--text);color:var(--bg);padding:4rem 2.5rem 1.5rem}.footer
   .hero-p{font-size:.58rem}
   .hero-right{height:155px;min-height:155px}
 }
+
+/* ASSAF readability and visual refresh */
+.promo{height:34px;font-size:.66rem;letter-spacing:.16em;font-weight:500;background:#111510}
+nav{top:34px;height:70px;background:rgba(247,245,239,.92);backdrop-filter:blur(14px)}
+nav.solid{background:rgba(247,245,239,.98);box-shadow:0 12px 34px rgba(23,26,22,.08)}
+.site-main{padding-top:104px}
+.logo{font-size:1.58rem;letter-spacing:.18em}
+.logo-sub{font-size:.52rem;letter-spacing:.24em;color:var(--gold2)}
+.nav-links{gap:2.25rem}
+.nav-links a,.nav-admin{font-size:.72rem;letter-spacing:.13em;color:#4f554c}
+.nav-cart{font-size:.7rem;padding:.7rem 1.15rem;background:#171a16;border-radius:2px}
+.cart-badge{width:20px;height:20px;font-size:.62rem}
+.btn-dark,.btn-border,.btn-full-dark,.btn-full-border{font-size:.72rem;letter-spacing:.14em;font-weight:600}
+.btn-dark,.btn-border{padding:1rem 2.25rem}
+.btn-border{border-color:#c3c9bc;background:rgba(255,253,248,.56)}
+.hero{background:linear-gradient(135deg,#f7f5ef 0%,#e8ece4 62%,#f5efe4 100%)}
+.hero-left{padding:3rem 4rem}
+.hero-tag,.sec-tag,.story-tag,.banner-tag,.promo-banner-tag,.d-cat,.notes-label,.form-sec-title{font-size:.68rem;letter-spacing:.2em;font-weight:600}
+.hero-h1{font-size:clamp(3rem,4.8vw,5.45rem)}
+.hero-p{font-size:.92rem;line-height:1.9;color:#50564d;max-width:480px}
+.hero-video-overlay{background:linear-gradient(to right,rgba(247,245,239,.14),rgba(247,245,239,.03) 34%,rgba(17,21,16,.05))}
+.strip{background:#eef1ea;padding:1.75rem 2rem}
+.strip-t{font-size:.78rem;font-weight:600}
+.strip-s{font-size:.72rem;color:#5f6358}
+section{padding:5.75rem 3rem}
+.sec-h2{font-size:clamp(2rem,3.4vw,3.15rem)}
+.sec-p{font-size:.9rem;line-height:1.85;max-width:540px;color:#565b52}
+.banners{gap:8px;background:#dde3d7;padding:8px}
+.banner{padding:3.1rem 2.35rem;border:1px solid rgba(111,125,79,.15);background:linear-gradient(145deg,#fffdf8,#f0f3eb)}
+.banner:hover{background:linear-gradient(145deg,#eef3e8,#fffdf8);transform:translateY(-2px)}
+.banner-title{font-size:1.85rem}
+.banner-sub,.banner-link{font-size:.78rem;line-height:1.7}
+.promo-banners{gap:8px;background:#dce2d6;padding:8px}
+.promo-banner{height:390px}
+.promo-banner-overlay{background:linear-gradient(90deg,rgba(7,10,8,.72),rgba(7,10,8,.24) 48%,rgba(7,10,8,.05))}
+.promo-banner-content{left:2.35rem;bottom:2.35rem}
+.promo-banner-title{font-size:2.45rem;line-height:1.08}
+.promo-banner-sub{font-size:.9rem;line-height:1.65;max-width:410px}
+.promo-banner-btn{font-size:.7rem;letter-spacing:.14em;font-weight:700}
+.prod-grid{gap:1.8rem}
+.prod-card{border-color:#d2d8cc;background:#fffdf8;box-shadow:0 4px 18px rgba(23,26,22,.04)}
+.prod-info{padding:1.25rem 1.15rem}
+.prod-name{font-size:1.18rem;line-height:1.2}
+.prod-sub{font-size:.68rem;letter-spacing:.08em;line-height:1.55;color:#5f6358}
+.prod-price{font-size:1.2rem}
+.prod-see,.btn-add,.prod-badge,.stock-tag{font-size:.66rem}
+.story-grid{max-width:1180px;gap:5.5rem}
+.story-p{font-size:.92rem;line-height:1.9;color:#565b52}
+.tn-badge{font-size:.68rem;padding:.65rem 1rem}
+.filters{gap:1rem}
+.filter-group button,.fsel{font-size:.78rem}
+.filter-group button{padding:.7rem 1.1rem}
+.fsel{padding:1rem 1.1rem}
+.breadcrumb,.breadcrumb button,.d-sub,.d-size,.trust-item,.note-tag,.qty-label{font-size:.76rem}
+.d-name{font-size:clamp(2.25rem,3.7vw,3.45rem)}
+.d-desc{font-size:.95rem;line-height:1.9;color:#565b52}
+.d-stock{font-size:.72rem}
+.qty-b{width:38px;height:38px;font-size:1rem}
+.qty-n{font-size:1.18rem}
+.cart-wrap,.co-wrap{max-width:1120px}
+.page-title{font-size:clamp(2.45rem,3.8vw,3.55rem)}
+.ci-name,.sum-title,.ob-title{font-size:1.18rem}
+.ci-sub,.sum-row,.cod-title,.cod-sub,.pm-title,.pm-sub,.ob-name,.ob-qty,.free-shipping-note,.ob-shipping{font-size:.82rem}
+.ci-price,.ob-price{font-size:1.05rem}
+.fi{font-size:.95rem;padding:1.08rem 1.15rem}
+.fg label{font-size:.76rem;letter-spacing:.12em}
+.empty-t{font-size:1.85rem}
+.empty-s{font-size:.9rem}
+.toast{font-size:.86rem;max-width:360px}
+.admin-wrap{background:#f4f6f1}
+.admin-logo{font-size:1.75rem}
+.admin-logo span,.stat-l,.stat-s,.tabs button,th,.sel-status,.abt,.admin-product-sub,.file-url,.image-picker-text{font-size:.76rem}
+.stat-v{font-size:2.25rem}
+.tabs button{font-weight:600}
+th,td{font-size:.88rem;padding:1.05rem 1.15rem}
+.pform-title{font-size:1.55rem}
+.footer-logo{font-size:1.8rem}
+.footer-tag-txt,.footer-col-h,.footer-badge,.footer-bottom{font-size:.7rem}
+.footer-desc,.footer-links{font-size:.82rem}
+
+@media(max-width:980px){
+  .promo{font-size:.58rem}
+  .site-main{padding-top:100px}
+  .hero-left{padding:3rem 2rem}
+  .hero-right{height:410px}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:620px){
+  .site-main{padding-top:92px}
+  .promo{height:30px;font-size:.48rem;letter-spacing:.08em}
+  nav{top:30px;height:62px}
+  .mob{top:92px}
+  .mob a{font-size:.86rem}
+  .logo{font-size:1.22rem}
+  .logo-sub{font-size:.42rem}
+  .hero-left{padding:3.1rem 1.25rem 2rem}
+  .hero-h1{font-size:clamp(2.45rem,12vw,3.35rem)}
+  .hero-p{font-size:.9rem;line-height:1.75}
+  .hero-right{height:235px;min-height:235px}
+  .btn-dark,.btn-border,.btn-full-dark,.btn-full-border{font-size:.68rem}
+  .strip-t,.strip-s{font-size:.78rem}
+  section{padding:3.6rem 1.1rem}
+  .promo-banner{height:320px}
+  .promo-banner-title{font-size:1.95rem}
+  .promo-banner-sub{font-size:.84rem}
+  .prod-name{font-size:1.12rem}
+  .prod-sub,.prod-see{font-size:.72rem}
+  .story-p,.sec-p,.d-desc{font-size:.9rem}
+  th,td{font-size:.84rem}
+}
