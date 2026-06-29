@@ -1,6 +1,8 @@
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#F7F5EF;--bg2:#E8ECE4;--card:#FFFDF8;--border:#D3D8CC;--gold:#6F7D4F;--gold2:#B88745;--text:#171A16;--muted:#5F6358;--light:#8D9486;--serif:Georgia,'Times New Roman',serif;--sans:'Segoe UI',Arial,sans-serif}
+:root{--bg:#F7F5EF;--bg2:#E8ECE4;--card:#FFFDF8;--border:#D3D8CC;--gold:#6F7D4F;--gold2:#B88745;--text:#171A16;--muted:#5F6358;--light:#8D9486;--serif:'Playfair Display',serif;--sans:'Montserrat',sans-serif}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.55;overflow-x:hidden}
 button,input,select,textarea{font-family:inherit}
 button{cursor:pointer}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--gold)}
