@@ -2476,6 +2476,48 @@ nav.solid .brand-logo-img { mix-blend-mode: multiply; }
   }
 }
 
+/* ASSAF monochrome palette */
+body{background:#fff;color:#0a0a0a}
+.promo,footer{background:#0a0a0a;color:#fff}
+nav,nav.solid{background:#fff;border-bottom:1px solid #e0e0e0;box-shadow:none}
+.nav-links a,.nav-admin,.mob a{color:#888}
+.nav-links a:hover,.nav-links a.active,.nav-admin:hover{color:#0a0a0a}
+.nav-cart,.btn-dark,.btn-full-dark{background:#1a1a1a;color:#fff}
+.nav-cart:hover,.btn-dark:hover,.btn-full-dark:hover{background:#0a0a0a}
+.cart-badge{background:#888;color:#fff}
+.btn-border,.btn-full-border{border-color:#e0e0e0;color:#1a1a1a;background:#fff}
+.btn-border:hover,.btn-full-border:hover{border-color:#1a1a1a;color:#0a0a0a}
+.hero,.band,.catalog-section,.success-wrap,.admin-wrap{background:#f5f5f5}
+.hero-left{background:#fff;color:#0a0a0a}
+.hero-h1,.hero-p{color:#0a0a0a}
+.hero-h1 em,.sec-h2 em,.story-h em,.page-title em{color:#1a1a1a}
+.hero-tag,.sec-tag,.story-tag,.banner-tag,.promo-banner-tag,.d-cat,.notes-label,.form-sec-title{color:#888}
+.hero-tag:before,.sec-tag:after,.sec-line{background:#1a1a1a}
+.hero-video-overlay{background:linear-gradient(90deg,rgba(255,255,255,.6),rgba(255,255,255,.12) 38%,transparent)}
+.strip{background:#f5f5f5;border-color:#e0e0e0}
+.strip-item,.banner,.prod-card,.story-grid,.sum-box,.order-box,.login-box,.pform,.stat-card,.tbl-wrap{background:#fff;border-color:#e0e0e0;box-shadow:none}
+.strip-t,.banner-title,.prod-name,.d-name,.page-title,.admin-logo{color:#0a0a0a}
+.strip-s,.banner-sub,.sec-p,.story-p,.d-desc,.prod-sub,.footer-desc,.footer-links{color:#888}
+.banners,.promo-banners{background:#f5f5f5}
+.banner{border-top-color:#1a1a1a}
+.banner:hover,.prod-card:hover{background:#fff;border-color:#1a1a1a;box-shadow:none}
+.banner-link,.prod-price,.d-price,.suc-title,.suc-ref{color:#1a1a1a}
+.promo-banner-overlay{background:linear-gradient(90deg,rgba(10,10,10,.62),rgba(10,10,10,.14))}
+.prod-img,.detail-img-box,.story-img{background:#f5f5f5}
+.prod-img img{background:#fff}
+.prod-badge,.badge-best,.badge-new,.btn-add{background:#1a1a1a;color:#fff}
+.badge-excl{border-color:#1a1a1a;color:#1a1a1a;background:#fff}
+.stock-ok,.stock-low{background:#f5f5f5;color:#1a1a1a;border-color:#d8d8d8}
+.stock-out{background:#f5f5f5;color:#888;border-color:#d8d8d8}
+.filter-group button.selected,.tabs button.active{border-color:#1a1a1a;color:#0a0a0a;background:#f5f5f5}
+.fi:focus,.fsel:focus,.image-picker:hover{border-color:#1a1a1a}
+.qty-label,.qty-n{color:#0a0a0a}
+.qty-b{border-color:#e0e0e0;color:#0a0a0a}
+.qty-b:hover{background:#f5f5f5}
+.toast{background:#0a0a0a;color:#fff;border-left-color:#888}
+.footer-tag-txt,.footer-col-h,.footer-badge{color:#fff;border-color:#888}
+.footer-social a:hover{background:#1a1a1a;border-color:#888}
+
 .nav-links a {
   font-size: .86rem;
 }

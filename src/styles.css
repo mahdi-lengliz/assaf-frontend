@@ -1,7 +1,6 @@
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FAF7F2;--bg2:#F2EDE4;--card:#fff;--border:#E0D9CE;--gold:#9A7B3A;--gold2:#C8973A;--text:#1C1916;--muted:#6F675E;--light:#968D80;--serif:'Playfair Display',Georgia,serif;--sans:'Inter','Segoe UI',Arial,sans-serif}
+:root{--bg:#FFFFFF;--bg2:#F5F5F5;--card:#FFFFFF;--border:#E0E0E0;--gold:#1A1A1A;--gold2:#0A0A0A;--text:#0A0A0A;--muted:#888888;--light:#A8A8A8;--serif:'Playfair Display',Georgia,serif;--sans:'Inter','Segoe UI',Arial,sans-serif}
 html{font-size:18px;scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.5;overflow-x:hidden;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 button,input,select,textarea{font-family:inherit}
 button{cursor:pointer}
-
