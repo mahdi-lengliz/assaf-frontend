@@ -32,14 +32,14 @@ type AdminTab = 'orders' | 'products';
       <div class="admin-wrap">
         <div class="admin-top">
           <div class="admin-logo">ASSAF<span>Dashboard Admin · Tunisie</span></div>
-          <button class="btn-border" type="button" (click)="logout()">Deconnexion</button>
+          <button class="btn-border" type="button" (click)="logout()">Déconnexion</button>
           <button class="btn-border" type="button" (click)="router.navigateByUrl('/')">Retour au site</button>
         </div>
 
         <div class="stats">
           <div class="stat-card"><div class="stat-l">Commandes</div><div class="stat-v">{{ adminStats.orders }}</div><div class="stat-s">Total</div></div>
-          <div class="stat-card"><div class="stat-l">En attente</div><div class="stat-v">{{ adminStats.pendingOrders }}</div><div class="stat-s">A traiter</div></div>
-          <div class="stat-card"><div class="stat-l">Chiffre affaires</div><div class="stat-v">{{ formatPrice(adminStats.revenue) }}</div><div class="stat-s">Actives</div></div>
+          <div class="stat-card"><div class="stat-l">En attente</div><div class="stat-v">{{ adminStats.pendingOrders }}</div><div class="stat-s">À traiter</div></div>
+          <div class="stat-card"><div class="stat-l">Chiffre d'affaires</div><div class="stat-v">{{ formatPrice(adminStats.revenue) }}</div><div class="stat-s">Actives</div></div>
           <div class="stat-card"><div class="stat-l">Produits</div><div class="stat-v">{{ adminStats.products }}</div><div class="stat-s">Catalogue</div></div>
         </div>
 
@@ -51,22 +51,24 @@ type AdminTab = 'orders' | 'products';
         @if (adminTab === 'orders') {
           <div class="tbl-wrap">
             <table>
-              <thead><tr><th>Reference</th><th>Client</th><th>Telephone</th><th>Ville</th><th>Total</th><th>Statut</th></tr></thead>
+              <thead><tr><th>Référence</th><th>Client</th> <th>Email</th><th>Téléphone</th><th>Produits</th><th>Ville</th><th>Total</th><th>Statut</th></tr></thead>
               <tbody>
                 @for (order of orders; track order.id) {
                   <tr>
                     <td>{{ order.orderNumber }}</td>
                     <td>{{ order.customerName }}</td>
+                    <td>{{ order.customerEmail || '-' }}</td>
                     <td>{{ order.customerPhone }}</td>
+                    <td>@for (item of order.items; track item.productId) {<span class="order-item-name">{{ item.emoji || '🧴' }} {{ item.productName }} x{{ item.quantity }}<br></span>}</td>
                     <td>{{ order.city }}</td>
                     <td>{{ formatPrice(order.total) }}</td>
                     <td>
                       <div class="status-select" [ngClass]="statusClass(order.status)">
                         <select class="sel-status" [ngModel]="order.status" (ngModelChange)="updateStatus(order, $event)">
                           <option value="PENDING">En attente</option>
-                          <option value="CONFIRMED">Confirmee</option>
-                          <option value="DELIVERED">Livree</option>
-                          <option value="CANCELLED">Annulee</option>
+                          <option value="CONFIRMED">Confirmée</option>
+                          <option value="DELIVERED">Livrée</option>
+                          <option value="CANCELLED">Annulée</option>
                         </select>
                       </div>
                     </td>
@@ -89,7 +91,7 @@ type AdminTab = 'orders' | 'products';
                 <div class="fg"><label>Contenance ML</label><input class="fi" type="number" [(ngModel)]="productForm.perfumeSize"></div>
                 <div class="fg"><label>Prix *</label><input class="fi" type="number" [(ngModel)]="productForm.price"></div>
                 <div class="fg">
-                  <label>Categorie</label>
+                  <label>Catégorie</label>
                   <select class="fsel" [(ngModel)]="productForm.categoryId">
                     @for (category of storeService.categories$ | async; track category.id) {
                       <option [value]="category.id">{{ categoryLabel(category.name) }}</option>
@@ -115,18 +117,18 @@ type AdminTab = 'orders' | 'products';
                     @if (productForm.imageUrl) { <img [src]="displayImage(productForm.imageUrl)" alt="Image principale"> }
                     @else { <span class="image-picker-ico">+</span> }
                     @if (isImageUploading('imageUrl')) { <span class="image-upload-state"><span class="image-spinner"></span><span>Upload en cours...</span></span> }
-                    @else { <span class="image-picker-text">{{ productForm.imageUrl ? 'Changer l image' : 'Choisir une image' }}</span> }
+                    @else { <span class="image-picker-text">{{ imageButtonLabel(productForm.imageUrl) }}</span> }
                   </label>
                   @if (productForm.imageUrl) { <span class="file-url">{{ productForm.imageUrl }}</span> }
                 </div>
                 <div class="fg">
-                  <label>2eme image - optionnel</label>
+                  <label>2ème image - optionnel</label>
                   <label class="image-picker" [class.uploading]="isImageUploading('imageUrl2')">
                     <input type="file" accept="image/*" [disabled]="isImageUploading('imageUrl2')" (change)="uploadImage($event, 'imageUrl2')">
-                    @if (productForm.imageUrl2) { <img [src]="displayImage(productForm.imageUrl2)" alt="Deuxieme image"> }
+                    @if (productForm.imageUrl2) { <img [src]="displayImage(productForm.imageUrl2)" alt="Deuxième image"> }
                     @else { <span class="image-picker-ico">+</span> }
                     @if (isImageUploading('imageUrl2')) { <span class="image-upload-state"><span class="image-spinner"></span><span>Upload en cours...</span></span> }
-                    @else { <span class="image-picker-text">{{ productForm.imageUrl2 ? 'Changer l image' : 'Choisir une image' }}</span> }
+                    @else { <span class="image-picker-text">{{ imageButtonLabel(productForm.imageUrl2) }}</span> }
                   </label>
                   @if (productForm.imageUrl2) { <span class="file-url">{{ productForm.imageUrl2 }}</span> }
                 </div>
@@ -137,23 +139,24 @@ type AdminTab = 'orders' | 'products';
             </div>
           }
 
+          <div class="admin-search"><span class="admin-search-ico">🔍</span><input class="fi" type="text" placeholder="Rechercher un produit..." [(ngModel)]="searchTerm"></div>
           <div class="tbl-wrap">
             <table>
               <thead><tr><th>Produit</th><th>Taille</th><th>Stock</th><th>Prix</th><th>Badge</th><th>Collection</th><th>Actions</th></tr></thead>
               <tbody>
-                @for (product of storeService.products$ | async; track product.id) {
+                @for (product of filteredProducts; track product.id) {
                   <tr>
                     <td>
                       <div class="admin-product-cell">
                         <span class="admin-product-emoji">{{ product.emoji || '🧴' }}</span>
                         <span>
                           <span class="admin-product-name">{{ product.name }}</span>
-                          <span class="admin-product-sub">{{ product.sub || 'Eau de Parfum' }}@if (product.perfumeSize) { size: {{ product.perfumeSize }} ml }</span>
+                          <span class="admin-product-sub">@if (product.perfumeSize) { Contenance : {{ product.perfumeSize }} ml }</span>
                         </span>
                       </div>
                     </td>
                     <td>{{ product.perfumeSize || '-' }} ML</td>
-                    <td>{{ stockInfo(product.stock).label }}</td>
+                    <td>{{ product.stock }} ({{ stockInfo(product.stock).label }})</td>
                     <td>{{ formatPrice(product.price) }}</td>
                     <td>{{ product.badge || '-' }}</td>
                     <td class="collection-cell">{{ product.collection ? '🎁' : '-' }}</td>
@@ -181,6 +184,13 @@ export class AdminComponent implements OnInit {
   notesText = '';
   productForm: ProductRequest;
   imageUploading: Partial<Record<'imageUrl' | 'imageUrl2', boolean>> = {};
+  searchTerm = '';
+
+  get filteredProducts(): Product[] {
+    const term = this.searchTerm.toLowerCase().trim();
+    if (!term) return this.storeService.products;
+    return this.storeService.products.filter(p => p.name.toLowerCase().includes(term));
+  }
 
   constructor(public authService: AuthService, public storeService: StoreService, public router: Router, private apiService: ApiService, private toastService: ToastService) {
     this.productForm = this.emptyProductForm();
@@ -204,7 +214,7 @@ export class AdminComponent implements OnInit {
   }
 
   updateStatus(order: Order, status: string): void {
-    this.apiService.updateOrderStatus(order.id, status).subscribe(updated => { order.status = updated.status; this.loadAdmin(); });
+    this.apiService.updateOrderStatus(order.id, status).subscribe(updated => { order.status = updated.status; this.loadAdmin(); this.storeService.load(); });
   }
 
   statusClass(status: string): string {
@@ -226,6 +236,7 @@ export class AdminComponent implements OnInit {
     this.productFormOpen = true;
     this.productForm = { name: product.name, sub: product.sub, perfumeSize: product.perfumeSize, price: product.price, categoryId: product.categoryId, emoji: product.emoji, badge: product.badge, description: product.description, stock: product.stock, imageUrl: persistedAssetUrl(product.imageUrl), imageUrl2: persistedAssetUrl(product.imageUrl2), collection: product.collection };
     this.notesText = product.notes.join(', ');
+    this.scrollToProductForm();
   }
 
   saveProduct(): void {
@@ -242,7 +253,7 @@ export class AdminComponent implements OnInit {
       this.productForm = this.emptyProductForm();
       this.notesText = '';
       this.loadAdmin();
-      this.toastService.show('Produit sauvegarde');
+      this.toastService.show('Produit sauvegardé');
     });
   }
 
@@ -254,7 +265,7 @@ export class AdminComponent implements OnInit {
     this.apiService.uploadProductImage(file).subscribe({
       next: response => {
         this.productForm = { ...this.productForm, [field]: persistedAssetUrl(response.url) };
-        this.toastService.show('Image ajoutee');
+        this.toastService.show('Image ajoutée');
       },
       error: error => {
         this.imageUploading = { ...this.imageUploading, [field]: false };
@@ -270,11 +281,15 @@ export class AdminComponent implements OnInit {
 
   deleteProduct(product: Product): void {
     if (!confirm(`Supprimer ${product.name} ?`)) return;
-    this.apiService.deleteProduct(product.id).subscribe(() => { this.storeService.removeProduct(product.id); this.loadAdmin(); this.toastService.show('Produit supprime'); });
+    this.apiService.deleteProduct(product.id).subscribe(() => { this.storeService.removeProduct(product.id); this.loadAdmin(); this.toastService.show('Produit supprimé'); });
   }
 
   private emptyProductForm(): ProductRequest {
     return { name: '', sub: 'Eau de Parfum', perfumeSize: 100, price: null, categoryId: this.storeService.categories[0]?.id ?? 0, emoji: '🧴', badge: '', description: '', stock: 0, imageUrl: '', imageUrl2: '', collection: false };
+  }
+
+  private scrollToProductForm(): void {
+    setTimeout(() => document.querySelector('.pform')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   }
 
   displayImage(url?: string): string {
@@ -283,5 +298,9 @@ export class AdminComponent implements OnInit {
 
   isImageUploading(field: 'imageUrl' | 'imageUrl2'): boolean {
     return Boolean(this.imageUploading[field]);
+  }
+
+  imageButtonLabel(url: string | null | undefined): string {
+    return url ? "Changer l'image" : 'Choisir une image';
   }
 }

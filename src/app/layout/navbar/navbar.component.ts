@@ -8,10 +8,9 @@ import { CartService } from '../../core/services/cart.service';
   standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive],
   template: `
-    <div class="promo">🚚 Livraison gratuite des 300 TND · Partout en Tunisie · Paiement a la livraison 💵</div>
     <nav [class.solid]="solidNav || mobileOpen">
       <a class="brand" routerLink="/">
-        <span class="logo">ASSAF<span class="logo-sub">To Be Different · Tunisie</span></span>
+        <img class="brand-logo-img" src="/LOGO.jpg" alt="ASSAF Tunisie">
       </a>
       <ul class="nav-links">
         @for (link of navLinks; track link.path) {
@@ -38,10 +37,10 @@ export class NavbarComponent {
   mobileOpen = false;
   navLinks = [
     { label: 'Accueil', path: '/', exact: true },
-    { label: 'Pour Elle', path: '/elle' },
-    { label: 'Pour Lui', path: '/lui' },
-    { label: 'Unisex', path: '/unisex' },
-    { label: 'Collections Exclusives', path: '/exclusives' }
+    { label: 'Pour elle', path: '/elle' },
+    { label: 'Pour lui', path: '/lui' },
+    { label: 'Unisexe', path: '/unisex' },
+    { label: 'Collections exclusives', path: '/exclusives' }
   ];
   mobileLinks = [...this.navLinks, { label: 'Panier', path: '/cart' }];
 

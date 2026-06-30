@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: 'collections', component: CatalogComponent, data: { title: 'Tous les <em>Parfums</em>' } },
   { path: 'elle', component: CatalogComponent, data: { title: '<em>Pour Elle</em>', categoryMatch: 'pour elle' } },
   { path: 'lui', component: CatalogComponent, data: { title: '<em>Pour Lui</em>', categoryMatch: 'pour lui' } },
-  { path: 'unisex', component: CatalogComponent, data: { title: '<em>Unisex</em>', categoryMatch: 'unisex' } },
+  { path: 'unisex', component: CatalogComponent, data: { title: '<em>Unisexe</em>', categoryMatch: 'unisex' } },
   { path: 'exclusives', component: CatalogComponent, data: { title: 'Collections <em>Exclusives</em>', collection: true } },
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'cart', component: CartComponent },

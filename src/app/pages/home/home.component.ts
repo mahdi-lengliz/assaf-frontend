@@ -1,19 +1,10 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { FooterComponent } from '../../layout/footer/footer.component';
 import { ProductCardComponent } from '../../shared/product-card/product-card.component';
 import { StoreService } from '../../core/services/store.service';
-
-interface HeroImage {
-  src: string;
-  alt: string;
-  kind: 'editorial' | 'product';
-  position?: string;
-  srcset?: string;
-  sizes?: string;
-}
 
 @Component({
   selector: 'app-home',
@@ -28,20 +19,12 @@ interface HeroImage {
         <div class="hero-ctas"><button class="btn-dark" type="button" (click)="router.navigateByUrl('/collections')">Découvrir la Collection →</button><button class="btn-border" type="button" (click)="router.navigateByUrl('/elle')">Pour Elle</button></div>
       </div>
       <div class="hero-right">
-        @if (heroImages$ | async; as heroImages) {
-          @for (image of heroImages; track image.src; let index = $index) {
-            <img class="hero-photo" [class.active]="isHeroImageActive(index, heroImages.length)" [class.hero-editorial]="image.kind === 'editorial'" [class.hero-product]="image.kind === 'product'" [style.object-position]="image.position || null" [attr.fetchpriority]="image.kind === 'editorial' ? 'high' : 'low'" [attr.loading]="image.kind === 'editorial' ? 'eager' : 'lazy'" [attr.srcset]="image.srcset || null" [attr.sizes]="image.sizes || null" decoding="async" [src]="image.src" [alt]="image.alt">
-          }
-          @if (!heroImages.length) {
-            <div class="hero-product-fallback"><span>ASSAF</span><small>Parfums Authentiques</small></div>
-          }
-        }
+        <img class="hero-photo hero-editorial active" src="/assaf-hero-baniere-v1.webp" alt="Campagne ASSAF" fetchpriority="high">
         <div class="hero-video-overlay"></div>
       </div>
     </div>
-    <div class="strip"><div class="strip-inner">@for (item of trustItems; track item.t) { <div class="strip-item"><span class="strip-ico">{{ item.i }}</span><div><span class="strip-t">{{ item.t }}</span><span class="strip-s">{{ item.s }}</span></div></div> }</div></div>
-    <div class="banners">@for (banner of banners; track banner.title) { <button class="banner" type="button" (click)="router.navigateByUrl(banner.path)"><span class="banner-ico">{{ banner.ico }}</span><span class="banner-tag">{{ banner.tag }}</span><span class="banner-title">{{ banner.title }}</span><span class="banner-sub">{{ banner.sub }}</span><span class="banner-link">Découvrir →</span></button> }</div>
-    <div class="promo-banners">@for (banner of promoBanners; track banner.tag) { <button class="promo-banner" type="button" (click)="openPromo(banner.prodName, banner.path)"><img [src]="banner.img" [alt]="banner.tag" loading="lazy" decoding="async"><span class="promo-banner-overlay"></span><span class="promo-banner-content"><span class="promo-banner-tag">{{ banner.tag }}</span><span class="promo-banner-title">{{ banner.title }}</span><span class="promo-banner-sub">{{ banner.sub }}</span><span class="promo-banner-btn">{{ banner.btn }} →</span></span></button> }</div>
+    <div class="banners">@for (banner of banners; track banner.title) { <button class="banner" type="button" (click)="router.navigateByUrl(banner.path)"><span class="banner-tag">{{ banner.tag }}</span><span class="banner-title">{{ banner.title }}</span><span class="banner-sub">{{ banner.sub }}</span><span class="banner-link">Découvrir →</span></button> }</div>
+    <div class="promo-banners">@for (banner of promoBanners; track banner.tag) { <button class="promo-banner" type="button" (click)="openPromo(banner.productId, banner.prodName, banner.path)"><img [src]="banner.img" [alt]="banner.tag" loading="lazy" decoding="async"><span class="promo-banner-overlay"></span><span class="promo-banner-content"><span class="promo-banner-tag">{{ banner.tag }}</span><span class="promo-banner-title">{{ banner.title }}</span><span class="promo-banner-sub">{{ banner.sub }}</span><span class="promo-banner-btn">{{ banner.btn }} →</span></span></button> }</div>
     <section class="band">
       <div class="sec-head"><div class="sec-tag">Les plus populaires</div><h2 class="sec-h2">Best <em>Sellers</em></h2><div class="sec-line"></div><p class="sec-p">Les parfums ASSAF les plus demandés, disponibles en Tunisie.</p></div>
       <div class="prod-grid">@for (product of bestSellers$ | async; track product.id) { <app-product-card [product]="product"></app-product-card> }</div>
@@ -51,76 +34,34 @@ interface HeroImage {
     <app-footer></app-footer>
   `
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
   bestSellers$;
-  heroImages$;
-  activeHeroImage = 0;
-  private readonly editorialHeroImage: HeroImage = {
-    src: 'assaf-hero-baniere-v1.webp',
-    alt: 'Campagne ASSAF',
-    kind: 'editorial',
-    position: 'center center',
-    srcset: '/assaf-hero-baniere-mobile-v1.webp 900w, /assaf-hero-baniere-v1.webp 1500w',
-    sizes: '(max-width: 620px) 100vw, 50vw'
-  };
-  private heroTimer?: ReturnType<typeof setInterval>;
-  trustItems = [
-    { i: '🚚', t: 'Livraison rapide', s: '2-5 jours partout en Tunisie' },
-    { i: '💵', t: 'Cash à la livraison', s: 'Aucune carte requise' },
-    { i: '✅', t: '100% Authentique', s: 'Selection ASSAF' },
-    { i: '↻', t: 'Retours faciles', s: 'Satisfait ou remboursé' }
-  ];
+
   banners = [
-    { tag: 'Pour Elle', title: 'Parfums Femme', sub: 'Floraux, poudrés et sucrés', ico: '🌸', path: '/elle' },
-    { tag: 'Pour Lui', title: 'Parfums Homme', sub: 'Sillages profonds et masculins', ico: '🖤', path: '/lui' },
-    { tag: 'Collections Exclusives', title: 'Nos Collections', sub: 'Coffrets et éditions spéciales', ico: '🎁', path: '/exclusives' }
+    { tag: 'Pour elle', title: 'Parfums Femme', sub: 'Floraux, poudrés et sucrés', path: '/elle' },
+    { tag: 'Pour lui', title: 'Parfums Homme', sub: 'Sillages profonds et masculins', path: '/lui' },
+    { tag: 'Collections exclusives', title: 'Nos Collections', sub: 'Coffrets et éditions spéciales', path: '/exclusives' }
   ];
   promoBanners = [
-    { tag: 'Collection Femme', title: 'Arrogate Comete', sub: 'Une signature lumineuse, elegante et feminine.', btn: 'Découvrir le parfum', img: '/assaf-promo-arrogate-comete-v1.webp', prodName: 'Arrogate Comete', path: '/elle' },
-    { tag: 'Selection Homme', title: 'EDP WILD COLT', sub: 'Un sillage profond, moderne et affirme.', btn: 'Commander maintenant', img: '/assaf-promo-morinho-v1.webp', prodName: 'EDP WILD COLT', path: '/lui' }
+    { tag: 'Collection Femme', title: 'Arrogate Comete', sub: 'Une signature lumineuse, elegante et feminine.', btn: 'Découvrir le parfum', img: '/assaf-promo-arrogate-comete-v1.webp', prodName: 'Arrogate Comete', productId: null, path: '/elle' },
+    { tag: 'Sélection Homme', title: 'EDP WILD COLT', sub: 'Un sillage profond, moderne et affirmé.', btn: 'Commander maintenant', img: '/assaf-promo-morinho-v1.webp', prodName: 'EDP WILD COLT', productId: null, path: '/lui' }
   ];
 
   constructor(private storeService: StoreService, public router: Router) {
-    this.heroImages$ = this.storeService.products$.pipe(map(() => [this.editorialHeroImage]));
-
     this.bestSellers$ = this.storeService.products$.pipe(map(products => {
       const best = products.filter(product => product.badge === 'Bestseller');
       return (best.length ? best : products).slice(0, 4);
     }));
   }
 
-  ngOnInit(): void {
-    this.heroTimer = setInterval(() => {
-      this.activeHeroImage += 1;
-    }, 5000);
-  }
+  ngOnInit(): void {}
 
-  ngOnDestroy(): void {
-    if (this.heroTimer) {
-      clearInterval(this.heroTimer);
+  openPromo(productId: number | null, productName: string, fallbackPath: string): void {
+    if (productId) {
+      const product = this.storeService.products.find(item => item.id === productId);
+      if (product) { this.router.navigate(['/product', product.id]); return; }
     }
-  }
-
-  openPromo(productName: string, fallbackPath: string): void {
-    const expected = this.normalizeLookup(productName);
-    const expectedTokens = expected.split(' ').filter(Boolean);
-    const product = this.storeService.products.find(item => {
-      const candidate = this.normalizeLookup(item.name);
-      return candidate.includes(expected) || expectedTokens.every(token => candidate.includes(token));
-    });
+    const product = this.storeService.products.find(item => item.name.toLowerCase() === productName.toLowerCase());
     this.router.navigate(product ? ['/product', product.id] : [fallbackPath]);
-  }
-
-  private normalizeLookup(value: string): string {
-    return value
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, ' ')
-      .trim();
-  }
-
-  isHeroImageActive(index: number, total: number): boolean {
-    return total > 0 && index === this.activeHeroImage % total;
   }
 }
