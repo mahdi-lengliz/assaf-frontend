@@ -18,7 +18,6 @@ import { CartService } from '../../core/services/cart.service';
         }
       </ul>
       <div class="nav-r">
-        <button class="nav-admin" type="button" (click)="router.navigateByUrl('/admin')">Admin</button>
         <button class="nav-cart" type="button" (click)="router.navigateByUrl('/cart')"><span class="cart-icon" aria-hidden="true">🛍</span> Panier @if (cartService.count() > 0) { <span class="cart-badge">{{ cartService.count() }}</span> }</button>
         <button class="ham" type="button" (click)="mobileOpen = !mobileOpen"><span></span><span></span><span></span></button>
       </div>
