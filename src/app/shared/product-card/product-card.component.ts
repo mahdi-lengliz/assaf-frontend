@@ -23,7 +23,7 @@ import { badgeClass, formatPrice, stockInfo } from '../../core/utils/format.util
       </span>
       <span class="prod-info">
         <span class="prod-name">{{ product.name }}</span>
-        <span class="prod-sub">{{ product.sub || 'Eau de Parfum' }} @if (product.perfumeSize) { · {{ product.perfumeSize }} ML }</span>
+        <span class="prod-sub">@if (product.perfumeSize) { Contenance : {{ product.perfumeSize }} ml }</span>
         <span class="prod-bot"><span class="prod-price">{{ formatPrice(product.price) }}</span><span class="prod-see">Voir →</span></span>
       </span>
     </button>

@@ -19,7 +19,7 @@ import { StoreService } from '../../core/services/store.service';
         <div class="hero-ctas"><button class="btn-dark" type="button" (click)="router.navigateByUrl('/collections')">Découvrir la Collection →</button><button class="btn-border" type="button" (click)="router.navigateByUrl('/elle')">Pour Elle</button></div>
       </div>
       <div class="hero-right">
-        <img class="hero-photo hero-editorial active" src="/assaf-hero-baniere-v1.webp" alt="Campagne ASSAF" fetchpriority="high">
+        <img class="hero-photo hero-editorial active" src="/assaf-hero-products-mobile-v1.webp" alt="Campagne ASSAF" fetchpriority="high">
         <div class="hero-video-overlay"></div>
       </div>
     </div>

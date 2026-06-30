@@ -4,5 +4,4 @@ html{font-size:18px;scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.5;overflow-x:hidden;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 button,input,select,textarea{font-family:inherit}
 button{cursor:pointer}
-::-webkit-scrollbar{width:3px}
-::-webkit-scrollbar-thumb{background:var(--gold)}
+
