@@ -2368,9 +2368,12 @@ td,
 nav.solid .brand-logo-img { mix-blend-mode: multiply; }
 
 .nav-links a,
+.mob a {
+  text-transform: uppercase;
+  letter-spacing: .15em;
+}
 .nav-admin,
 .nav-cart,
-.mob a,
 .sel-status {
   text-transform: none;
   font-weight: 700;

@@ -42,7 +42,7 @@ export class CartService {
   }
 
   shipping(): number {
-    return this.total() >= 300 || this.items.length === 0 ? 0 : 15;
+    return this.items.length === 0 ? 0 : 15;
   }
 
   private setItems(items: CartItem[]): void {

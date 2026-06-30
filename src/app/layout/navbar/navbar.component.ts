@@ -10,7 +10,7 @@ import { CartService } from '../../core/services/cart.service';
   template: `
     <nav [class.solid]="solidNav || mobileOpen">
       <a class="brand" routerLink="/">
-        <img class="brand-logo-img" src="/LOGO.jpg" alt="ASSAF Tunisie">
+        <img class="brand-logo-img" src="/logo-assaf.png" alt="ASSAF Tunisie">
       </a>
       <ul class="nav-links">
         @for (link of navLinks; track link.path) {
