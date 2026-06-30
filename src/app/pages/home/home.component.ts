@@ -14,7 +14,7 @@ import { StoreService } from '../../core/services/store.service';
     <div class="hero">
       <div class="hero-left">
         <div class="hero-tag">Revendeur Officiel · Tunisie</div>
-        <h1 class="hero-h1">Sois <em>Différent</em>.<br>Sois ASSAF.</h1>
+        <h1 class="hero-h1"><em>Greatness</em> or <em>Nothing</em>.</h1>
         <p class="hero-p">Une sélection de parfums de luxe, désormais disponible partout en Tunisie. Livraison rapide, paiement à la réception.</p>
         <div class="hero-ctas"><button class="btn-dark" type="button" (click)="router.navigateByUrl('/collections')">Découvrir la Collection →</button><button class="btn-border" type="button" (click)="router.navigateByUrl('/elle')">Pour Elle</button></div>
       </div>
@@ -30,7 +30,7 @@ import { StoreService } from '../../core/services/store.service';
       <div class="prod-grid">@for (product of bestSellers$ | async; track product.id) { <app-product-card [product]="product"></app-product-card> }</div>
       <div class="center mt"><button class="btn-border" type="button" (click)="router.navigateByUrl('/collections')">Voir tous les parfums →</button></div>
     </section>
-    <section><div class="story-grid"><div class="story-img"><img src="/assaf-story-logo-v1.webp" alt="ASSAF" loading="lazy" decoding="async"></div><div><div class="story-tag">À propos</div><h2 class="story-h">L'univers <em>ASSAF</em></h2><p class="story-p">ASSAF propose une expérience parfumée élégante, pensée pour les amateurs de sillages raffinés et modernes.</p><p class="story-p">La boutique met l'accent sur une sélection claire, des produits bien présentés et une livraison rapide partout en Tunisie.</p><div class="tn-badge">Tunis, Tunisie</div></div></div></section>
+    <section><div class="story-grid"><div class="story-img"><img src="/assaf-story-logo-v1.webp" alt="ASSAF" loading="lazy" decoding="async"></div><div><div class="story-tag">À propos</div><h2 class="story-h">L'univers <em>ASSAF</em></h2><p class="story-p">Bonjour, je suis Assaf. Mon histoire a commencé en 1988, au cœur du désert ancestral du Najd, entre dunes dorées, chevaux sauvages et effluves envoûtants d'oud.</p><p class="story-p">En 2021, une vision est née : associer la noblesse du cheval des sables à la richesse de l'oud et aux notes pures d'encens pour créer des fragrances d'exception au caractère royal.</p><p class="story-p">C'est ainsi qu'ont vu le jour nos parfums Annibal, Aroquate et Wild Colt, chacun inspiré par l'héritage, la puissance et l'élégance du Najd.</p><p class="story-p">Chez Assaf, nous créons des parfums avec passion et créativité, pour laisser des souvenirs olfactifs inoubliables.</p><div class="tn-badge">Tunis, Tunisie</div></div></div></section>
     <app-footer></app-footer>
   `
 })
