@@ -19,7 +19,7 @@ import { StoreService } from '../../core/services/store.service';
         <div class="hero-ctas"><button class="btn-dark" type="button" (click)="router.navigateByUrl('/collections')">Découvrir la Collection →</button></div>
       </div>
       <div class="hero-right">
-        <video class="hero-video" autoplay muted [muted]="true" [defaultMuted]="true" [volume]="0" loop playsinline preload="metadata" poster="/assaf-hero-products-mobile-v1.webp" aria-label="Campagne ASSAF">
+        <video class="hero-video" autoplay muted [muted]="true" [defaultMuted]="true" [volume]="0" loop playsinline preload="auto" aria-label="Campagne ASSAF">
           <source src="/assaf-baniere.mp4" type="video/mp4">
         </video>
         <div class="hero-video-overlay"></div>
