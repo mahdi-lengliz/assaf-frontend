@@ -33,14 +33,13 @@ import { FooterComponent } from '../../layout/footer/footer.component';
         </div>
         <div>
           <div class="breadcrumb"><button type="button" (click)="router.navigateByUrl('/')">Accueil</button><span>/</span><button type="button" (click)="router.navigateByUrl('/collections')">Parfums</button><span>/</span><span>{{ product.name }}</span></div>
-          @if (product.badge) { <span class="prod-badge badge-best">{{ product.badge }}</span> }
           <div class="d-cat">{{ productCategoryLabel() }} · Authentique</div>
           <h1 class="d-name">{{ product.name }}</h1><div class="d-sub">{{ product.sub || 'Eau de Parfum' }}</div>
           @if (product.perfumeSize) { <div class="d-size">Contenance : {{ product.perfumeSize }} ML</div> }
           <div class="d-price">{{ formatPrice(product.price) }}</div><div class="d-stock" [ngClass]="stockInfo(product.stock).cls">{{ stockInfo(product.stock).label }}</div>
           <p class="d-desc">{{ product.description }}</p>
           @if (product.notes.length) { <div class="notes-label">Notes Olfactives</div><div class="notes-row">@for (note of product.notes; track note) { <span class="note-tag">{{ note }}</span> }</div> }
-          @if (stockInfo(product.stock).canBuy) { <div class="qty-wrap"><span class="qty-label">Quantite</span><button class="qty-b" type="button" (click)="qty = max(1, qty - 1)">−</button><span class="qty-n">{{ qty }}</span><button class="qty-b" type="button" (click)="qty = min(product.stock, qty + 1)">+</button></div> }
+          @if (stockInfo(product.stock).canBuy) { <div class="qty-selector"><span class="qty-label">Quantité</span><button class="qty-b" type="button" aria-label="Diminuer la quantite" (click)="qty = max(1, qty - 1)">−</button><span class="qty-n">{{ qty }}</span><button class="qty-b" type="button" aria-label="Augmenter la quantite" (click)="qty = min(product.stock, qty + 1)">+</button></div> }
           <div class="d-actions"><button class="btn-full-dark" type="button" [disabled]="!stockInfo(product.stock).canBuy" (click)="addCart()">{{ stockInfo(product.stock).canBuy ? 'Ajouter au panier · ' + formatPrice(product.price * qty) : 'Rupture de stock' }}</button>@if (stockInfo(product.stock).canBuy) { <button class="btn-full-border" type="button" (click)="buyNow()">Commander maintenant →</button> }</div>
           <div class="trust-row"><span class="trust-item">✅ 100% Authentique</span><span class="trust-item">💵 Cash livraison</span><span class="trust-item">🚚 Livraison 2-5j</span><span class="trust-item">↻ Retour facile</span></div>
         </div>
