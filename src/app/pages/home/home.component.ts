@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     { tag: 'Collections exclusives', title: 'Nos Collections', sub: 'Coffrets et éditions spéciales', path: '/exclusives' }
   ];
   promoBanners = [
-    { tag: 'Collection Femme', title: 'Arrogate Comete', sub: 'Une signature lumineuse, elegante et feminine.', btn: 'Découvrir le parfum', img: '/assaf-promo-arrogate-comete-v1.webp', prodName: 'Arrogate Comete', productId: null, path: '/elle' },
+    { tag: 'Collection Femme', title: 'Arrogate Comete', sub: 'Une signature lumineuse, élégante et féminine.', btn: 'Découvrir le parfum', img: '/assaf-promo-arrogate-comete-v1.webp', prodName: 'Arrogate Comete', productId: null, path: '/elle' },
     { tag: 'Sélection Homme', title: 'EDP WILD COLT', sub: 'Un sillage profond, moderne et affirmé.', btn: 'Commander maintenant', img: '/assaf-promo-morinho-v1.webp', prodName: 'EDP WILD COLT', productId: null, path: '/lui' }
   ];
 

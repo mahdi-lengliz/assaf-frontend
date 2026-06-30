@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
         <div>
           <div class="footer-logo">ASSAF</div>
           <div class="footer-tag-txt">To Be Different</div>
-          <div class="footer-desc">Parfums ASSAF en Tunisie. Authenticite garantie, livraison rapide.</div>
+          <div class="footer-desc">Parfums ASSAF en Tunisie. Authenticité garantie, livraison rapide.</div>
           <div class="footer-badge">TN Revendeur officiel · Tunis</div>
         </div>
         <div>
@@ -27,7 +27,7 @@ import { RouterLink } from '@angular/router';
         </div>
         <div>
           <div class="footer-col-h">Informations</div>
-          <ul class="footer-links"><li>Livraison & Retours</li><li>Authenticite</li><li>Guide des parfums</li><li>FAQ</li></ul>
+          <ul class="footer-links"><li>Livraison & Retours</li><li>Authenticité</li><li>Guide des parfums</li><li>FAQ</li></ul>
         </div>
         <div>
           <div class="footer-col-h">Contact</div>
@@ -49,7 +49,7 @@ import { RouterLink } from '@angular/router';
           </div>
         </div>
       </div>
-      <div class="footer-bottom"><span>© 2026 ASSAF Tunisie</span><span><span class="footer-mini-icon">💵</span> Cash a la livraison · <span class="footer-mini-icon">🚚</span> Partout en Tunisie</span></div>
+      <div class="footer-bottom"><span>© 2026 ASSAF Tunisie</span><span><span class="footer-mini-icon">💵</span> Cash à la livraison · <span class="footer-mini-icon">🚚</span> Partout en Tunisie</span></div>
     </footer>
   `
 })

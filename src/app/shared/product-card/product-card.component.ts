@@ -45,6 +45,6 @@ export class ProductCardComponent {
     event.stopPropagation();
     if (!stockInfo(this.product.stock).canBuy) return;
     this.cartService.add(this.product);
-    this.toastService.show(`${this.product.name} ajoute au panier`);
+    this.toastService.show(`${this.product.name} ajouté au panier`);
   }
 }

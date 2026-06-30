@@ -13,7 +13,7 @@ import { formatPrice } from '../../core/utils/format.utils';
       <h1 class="page-title">Votre <em>Panier</em></h1>
       @if (cartService.cart$ | async; as cart) {
         @if (cart.length === 0) {
-          <div class="empty-state"><div class="empty-ico">🛍</div><div class="empty-t">Votre panier est vide</div><div class="empty-s">Explorez notre collection de parfums ASSAF</div><button class="btn-dark" type="button" (click)="router.navigateByUrl('/collections')">Decouvrir les parfums →</button></div>
+          <div class="empty-state"><div class="empty-ico">🛍</div><div class="empty-t">Votre panier est vide</div><div class="empty-s">Explorez notre collection de parfums ASSAF</div><button class="btn-dark" type="button" (click)="router.navigateByUrl('/collections')">Découvrir les parfums →</button></div>
         } @else {
           <div class="cart-layout">
             <div>
@@ -25,7 +25,7 @@ import { formatPrice } from '../../core/utils/format.utils';
                 </div>
               }
             </div>
-            <div class="sum-box"><div class="sum-title">Recapitulatif</div><div class="sum-row"><span>Sous-total</span><span>{{ formatPrice(cartService.total()) }}</span></div><div class="sum-row"><span>Livraison</span><span>{{ formatPrice(cartService.shipping()) }}</span></div><div class="sum-total"><span>Total</span><span>{{ formatPrice(cartService.total() + cartService.shipping()) }}</span></div><div class="cod-box"><span>💵</span><div><div class="cod-title">Paiement a la livraison</div><div class="cod-sub">Preparez le montant en especes.</div></div></div><button class="btn-full-dark" type="button" (click)="router.navigateByUrl('/checkout')">Confirmer la commande →</button><button class="btn-full-border" type="button" (click)="router.navigateByUrl('/collections')">Continuer mes achats</button></div>
+            <div class="sum-box"><div class="sum-title">Récapitulatif</div><div class="sum-row"><span>Sous-total</span><span>{{ formatPrice(cartService.total()) }}</span></div><div class="sum-row"><span>Livraison</span><span>{{ formatPrice(cartService.shipping()) }}</span></div><div class="sum-total"><span>Total</span><span>{{ formatPrice(cartService.total() + cartService.shipping()) }}</span></div><div class="cod-box"><span>💵</span><div><div class="cod-title">Paiement à la livraison</div><div class="cod-sub">Préparez le montant en espèces.</div></div></div><button class="btn-full-dark" type="button" (click)="router.navigateByUrl('/checkout')">Confirmer la commande →</button><button class="btn-full-border" type="button" (click)="router.navigateByUrl('/collections')">Continuer mes achats</button></div>
           </div>
         }
       }
