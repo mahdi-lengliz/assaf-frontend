@@ -30,7 +30,7 @@
 }
 
 /* ---- Layout ---- */
-.site-main { padding-top: 155px; }
+.site-main { padding-top: 115px; }
 
 /* ---- Promo banner ---- */
 .promo {
@@ -57,7 +57,7 @@ nav {
   left: 0;
   right: 0;
   z-index: 900;
-  height: 155px;
+  height: 115px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,7 +83,7 @@ nav.solid {
 .brand * { text-decoration: none; }
 .brand-logo-img {
   display: block;
-  width: 200px;
+  width: 140px;
   height: auto;
 }
 .logo {
@@ -2015,7 +2015,7 @@ footer {
 }
 
 @media(max-width: 620px) {
-  .site-main { padding-top: 115px; }
+  .site-main { padding-top: 85px; }
   .promo {
     height: 28px;
     padding: 0 .6rem;
@@ -2028,7 +2028,7 @@ footer {
   }
   nav {
     top: 0;
-    height: 115px;
+    height: 85px;
     padding: 0 1rem;
     background: rgba(250,247,242,.98);
     border-bottom: 1px solid var(--border);
@@ -2039,7 +2039,7 @@ footer {
     letter-spacing: .24em;
   }
   .brand-logo-img {
-    width: 145px;
+    width: 100px;
     height: auto;
   }
   .nav-r { gap: .65rem; }
@@ -2051,7 +2051,7 @@ footer {
   .nav-cart span:not(.cart-icon):not(.cart-badge) { display: none; }
   .cart-icon { margin: 0; }
   .mob {
-    top: 115px;
+    top: 85px;
     padding: 1.4rem;
   }
 
@@ -2356,7 +2356,7 @@ td,
 .catalog-search { min-width: 260px; }
 
 .brand-logo-img {
-  width: 200px;
+  width: 140px;
   height: auto;
 }
 nav.solid .brand-logo-img { mix-blend-mode: multiply; }
@@ -2398,7 +2398,7 @@ nav.solid .brand-logo-img { mix-blend-mode: multiply; }
   .catalog-search { width: 100%; }
   .catalog-controls .fsel { width: 100%; }
   .brand-logo-img {
-    width: 145px;
+    width: 100px;
     height: auto;
   }
 }
