@@ -16,7 +16,7 @@ import { StoreService } from '../../core/services/store.service';
         <div class="hero-tag">Revendeur Officiel · Tunisie</div>
         <h1 class="hero-h1"><em>Greatness</em> or <em>Nothing</em>.</h1>
         <p class="hero-p">Une sélection de parfums de luxe, désormais disponible partout en Tunisie. Livraison rapide, paiement à la réception.</p>
-        <div class="hero-ctas"><button class="btn-dark" type="button" (click)="router.navigateByUrl('/collections')">Découvrir la Collection →</button><button class="btn-border" type="button" (click)="router.navigateByUrl('/elle')">Pour Elle</button></div>
+        <div class="hero-ctas"><button class="btn-dark" type="button" (click)="router.navigateByUrl('/collections')">Découvrir la Collection →</button></div>
       </div>
       <div class="hero-right">
         <video class="hero-video" autoplay muted [muted]="true" [defaultMuted]="true" [volume]="0" loop playsinline preload="metadata" poster="/assaf-hero-products-mobile-v1.webp" aria-label="Campagne ASSAF">
