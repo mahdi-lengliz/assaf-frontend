@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
       <div class="footer-grid">
         <div>
           <div class="footer-logo">ASSAF</div>
-          <div class="footer-tag-txt">To Be Different</div>
+          <div class="footer-tag-txt">GREATNESS OR NOTHING</div>
           <div class="footer-desc">Parfums ASSAF en Tunisie. Authenticité garantie, livraison rapide.</div>
           <div class="footer-badge">TN Revendeur officiel · Tunis</div>
         </div>
@@ -33,7 +33,7 @@ import { RouterLink } from '@angular/router';
           <div class="footer-col-h">Contact</div>
           <ul class="footer-links footer-contact">
             <li><span class="footer-mini-icon">📧</span><a href="mailto:contact@assaf-tn.com">contact&#64;assaf-tn.com</a></li>
-            <li><span class="footer-mini-icon">📞</span><a href="tel:+21600000000">+216 XX XXX XXX</a></li>
+            <li><span class="footer-mini-icon">📞</span><a href="tel:+21670622977">+216 70 622 977</a></li>
             <li><span class="footer-mini-icon">📍</span><span>Tunis, Tunisie</span></li>
           </ul>
           <div class="footer-social">
